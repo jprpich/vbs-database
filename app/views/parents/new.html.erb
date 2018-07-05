@@ -1,0 +1,24 @@
+<%= form_for @parent do |f| %>
+  <p>
+    <%= f.label :Nombre %>
+    <%= f.text_field :name %>
+  </p> 
+  <p>
+    <%= f.label :Email %>
+    <%= f.email_field :email %>
+  </p>
+  <p>
+    <%= f.label :Teléfono %>
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.label :Valor %>
+    <%= f.number_field :amount_paid %>
+  </p>
+  
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to "Lista de Padres", parents_path %>

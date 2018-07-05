@@ -1,0 +1,24 @@
+<h1>Lista de Padres VBS Colombia</h1>
+<table border="1">
+  <tr>
+    <th>Nombre</th>
+    <th>Email</th>
+    <th>Teléfono</th>
+    <th>Valor Cancelado</th>
+    <th>Opciones</th>
+  </tr>
+<% @parents.each do |parent| %> 
+  <tr>
+    <td><%= parent.name %></td>
+    <td><%= parent.email %></td>
+    <td><%= parent.phone %></td>
+    <td><%= parent.amount_paid %></td>
+    <td>
+      <%= link_to  "Editar Padre", edit_parent_path(parent) %>
+      </br></br>
+      <%= link_to 'Eliminar Padre',  { action: :destroy, id: parent.id }, method: :delete, data: { confirm: 'Estás seguro?' } %>
+    </td>
+  </tr>
+<% end %> 
+</table>
+<%= link_to "Crear Padre", new_parent_path %>
