@@ -20,7 +20,11 @@ class ParentsController < ApplicationController
   end
 
   def edit
+  end
 
+  def update
+    @parent.update(parent_params)
+    redirect_to parents_path
   end
   
   private
