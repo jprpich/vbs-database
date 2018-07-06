@@ -11,6 +11,10 @@
   <body>
     <%= render 'layouts/partials/navbar' %>
     <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <%= link_to('Sign in', new_hacker_session_path) %>
       <%= yield %>
     </div>
   </body>
