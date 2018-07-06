@@ -1,4 +1,4 @@
-<h1>Lista de Padres VBS Colombia</h1>
+<h2>Padres VBS Colombia</h2>
 <table class="table">
   <thead class="thead-light">
   <tr>
@@ -9,6 +9,7 @@
     <th>Opciones</th>
   </tr>
   </thead>
+  <div class="digg_pagination"><%= will_paginate @parents, :page_links => false %></div>
   <tbody>
     <% @parents.each do |parent| %> 
       <tr>
@@ -17,12 +18,9 @@
         <td><%= parent.phone %></td>
         <td><%= parent.amount_paid %></td>
         <td>
-          <%= link_to  "Editar Padre", edit_parent_path(parent) %>
-          </br></br>
-          <%= link_to 'Eliminar Padre',  { action: :destroy, id: parent.id }, method: :delete, data: { confirm: 'Estás seguro?' } %>
+          <%= link_to  "Editar", edit_parent_path(parent), class: "btn btn-info" %>
+          <%= link_to 'Eliminar',  { action: :destroy, id: parent.id }, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
         </td>
       </tr>
     <% end %> 
   </tbody>
-</table>
-<%= link_to "Crear Padre", new_parent_path %>
