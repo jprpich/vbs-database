@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
-
+gem "rspec"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -42,6 +42,11 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'factory_girl_rails', '4.5.0'
+  gem 'faker'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'rails-controller-testing', '~> 1.0.1'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
