@@ -1,0 +1,26 @@
+<h2>Niños VBS Colombia</h2>
+<table class="table">
+  <thead class="thead-light">
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Edad</th>
+    <th>Tarjeta de Identidad</th>
+    <th>Opciones</th>
+  </tr>
+  </thead>
+  <div class="digg_pagination"><%= will_paginate @children, :page_links => false %></div>
+  <tbody>
+    <% @children.each do |child| %> 
+      <tr>
+        <td><%= link_to child.first_name, child_path(child) %></td>
+        <td><%= child.last_name %></td>
+        <td><%= child.age %></td>
+        <td><%= child.identification %></td>
+        <td>
+          <%= link_to  "Editar", edit_child_path(child), class: "btn btn-info" %>
+          <%= link_to 'Eliminar',  { action: :destroy, id: child.id }, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %> 
+  </tbody>
