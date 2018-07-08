@@ -13,7 +13,7 @@
   <tbody>
     <% @children.each do |child| %> 
       <tr>
-        <td><%= link_to child.first_name, child_path(child) %></td>
+        <td><%= child.first_name %></td>
         <td><%= child.last_name %></td>
         <td><%= child.age %></td>
         <td><%= child.identification %></td>
