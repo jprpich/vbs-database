@@ -1,6 +1,6 @@
 class ParentsController < ApplicationController
   before_action :authenticate_hacker!
-  before_action :fetch_parent, only: [:update, :edit, :destroy]
+  before_action :fetch_parent, only: [:update, :edit, :destroy, :show]
   def index
     @parents = Parent.paginate(:page => params[:page], :per_page => 10).order('name ASC')
   end
@@ -13,6 +13,9 @@ class ParentsController < ApplicationController
     @parent = Parent.new(parent_params)
     @parent.save
     redirect_to parents_path
+  end
+
+  def show
   end
 
   def destroy

@@ -4,5 +4,5 @@ class Parent < ApplicationRecord
   validates :email, presence: true  
   validates :amount_paid, presence: true
 
-  # has_many :children
+  has_many :children
 end

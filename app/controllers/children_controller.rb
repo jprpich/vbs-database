@@ -5,27 +5,17 @@ class ChildrenController < ApplicationController
     @children = Child.paginate(:page => params[:page], :per_page => 10).order('first_name ASC')
   end
 
-  def new
-    @child = Child.new
-  end
-
   def create
-    @child = Child.new(child_params)
-    @child.save
-    redirect_to children_path
-  end
-
-  def destroy
-    @child.destroy
-    redirect_to children_path
-  end
-
-  def edit
-  end
-
-  def update
-    @child.update(child_params)
-    redirect_to children_path
+    if params[:parent_id].present?
+      parent = Parent.find(params[:parent_id])
+      child = parent.children.new(child_params)
+      if child.save
+        redirect_to parent
+      else
+        @errors = child.errors.full_messages
+        redirect_to parent, notice: 'No se permiten crear hijos sin padres asociados'
+      end
+    end 
   end
   
   private
