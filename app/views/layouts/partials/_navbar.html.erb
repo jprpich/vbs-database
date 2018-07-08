@@ -23,9 +23,15 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
+      <% if hacker_signed_in? %>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <%= link_to('Logout', destroy_hacker_session_path, method: :delete, class: "nav-link") %> 
       </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to('Login', new_hacker_session_path, class:"nav-link")  %>  
+      </li>
+      <% end %>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

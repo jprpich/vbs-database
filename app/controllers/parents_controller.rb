@@ -1,4 +1,5 @@
 class ParentsController < ApplicationController
+  before_action :authenticate_hacker!
   before_action :fetch_parent, only: [:update, :edit, :destroy]
   def index
     @parents = Parent.paginate(:page => params[:page], :per_page => 10).order('name ASC')
