@@ -33,7 +33,7 @@ class ChildrenController < ApplicationController
 
   private
     def child_params
-      params.require(:child).permit(:first_name, :last_name, :age, :identification)
+      params.require(:child).permit(:first_name, :last_name, :age, :identification, :health_provider)
     end
 
     def fetch_child
