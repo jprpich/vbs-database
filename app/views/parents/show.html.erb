@@ -1,11 +1,12 @@
-<h2>Hijos de <%= @parent.name %></h2>
+<h2>Hijos de <%= @parent.first_name %> <%= @parent.last_name %></h2>
 <table class="table">
   <thead class="thead-light">
   <tr>
-    <th>Nombre</th>
-    <th>Apellido</th>
+    <th>Nombre(s)</th>
+    <th>Apellido(s)</th>
     <th>Edad</th>
     <th>Tarjeta de Identidad</th>
+    <th>EPS</th>
     <th>Opciones</th>
   </tr>
   </thead>
@@ -16,6 +17,7 @@
         <td><%= child.last_name %></td>
         <td><%= child.age %></td>
         <td><%= child.identification %></td>
+        <td><%= child.health_provider %></td>
         <td><%= link_to  "Editar", edit_child_path(child), class: "btn btn-info" %>
             <%= link_to 'Eliminar', child, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
         </td> 
@@ -33,11 +35,11 @@
     <%= form_for [@parent, @parent.children.build] do |f| %>
       <div class="form-group">
           <div class="form-group">
-            <%= f.label :Nombre %>
+            <%= f.label :Nombres %>
             <%= f.text_field :first_name, class: "form-control" %>
           </div> 
           <div class="form-group">
-            <%= f.label :Apellido %>
+            <%= f.label :Apellidos %>
             <%= f.text_field :last_name, class: "form-control" %>
           </div>
           <div class="form-group">
@@ -48,6 +50,10 @@
             <%= f.label :Tarjeta_de_identidad %>
             <%= f.number_field :identification, class: "form-control" %>
           </div>
+          <div class="form-group">
+            <%= f.label :EPS %>
+            <%= f.text_field :health_provider, class: "form-control" %>
+          </div> 
           <%= f.submit class: "btn btn-info" %>
       </div>
     <% end %>

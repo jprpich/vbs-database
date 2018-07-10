@@ -2,7 +2,7 @@ class ParentsController < ApplicationController
   before_action :authenticate_hacker!
   before_action :fetch_parent, only: [:update, :edit, :destroy, :show]
   def index
-    @parents = Parent.paginate(:page => params[:page], :per_page => 10).order('name ASC')
+    @parents = Parent.paginate(:page => params[:page], :per_page => 10).order('first_name ASC')
   end
 
   def new
@@ -33,7 +33,7 @@ class ParentsController < ApplicationController
   
   private
     def parent_params
-      params.require(:parent).permit(:name, :email, :phone, :amount_paid)
+      params.require(:parent).permit(:first_name,:last_name, :email, :phone, :amount_paid, :church)
     end
 
     def fetch_parent

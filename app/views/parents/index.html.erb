@@ -2,9 +2,11 @@
 <table class="table">
   <thead class="thead-light">
   <tr>
-    <th>Nombre</th>
+    <th>Nombre(s)</th>
+    <th>Apellidos(s)</th>
     <th>Email</th>
     <th>Teléfono</th>
+    <th>Iglesia</th>
     <th>Valor Cancelado</th>
     <th>Opciones</th>
   </tr>
@@ -13,9 +15,11 @@
   <tbody>
     <% @parents.each do |parent| %> 
       <tr>
-        <td><%= link_to parent.name, parent_path(parent) %></td>
+        <td><%= link_to parent.first_name, parent_path(parent) %></td>
+        <td><%= parent.last_name %></td>
         <td><%= parent.email %></td>
         <td><%= parent.phone %></td>
+        <td><%= parent.church %></td>
         <td><%= parent.amount_paid %></td>
         <td>
           <%= link_to  "Editar", edit_parent_path(parent), class: "btn btn-info" %>

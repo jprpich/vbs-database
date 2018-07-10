@@ -3,8 +3,12 @@
     <%= form_for @parent do |f| %>
 
       <div class="form-group">
-        <%= f.label :Nombre %>
-        <%= f.text_field :name, class: "form-control" %>
+        <%= f.label :Nombres %>
+        <%= f.text_field :first_name, class: "form-control" %>
+      </div> 
+      <div class="form-group">
+        <%= f.label :Apellidos %>
+        <%= f.text_field :last_name, class: "form-control" %>
       </div> 
       <div class="form-group">
         <%= f.label :Email %>
@@ -14,6 +18,10 @@
         <%= f.label :Teléfono %>
         <%= f.text_field :phone, class: "form-control" %>
       </div>
+      <div class="form-group">
+        <%= f.label :Iglesia %>
+        <%= f.text_field :church, class: "form-control" %>
+      </div> 
       <div class="form-group">
         <%= f.label :Valor_cancelado %>
         <%= f.number_field :amount_paid, class: "form-control" %>
