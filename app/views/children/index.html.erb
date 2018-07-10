@@ -17,10 +17,10 @@
         <td><%= child.last_name %></td>
         <td><%= child.age %></td>
         <td><%= child.identification %></td>
-        <td>
-          <%= link_to  "Editar", edit_child_path(child), class: "btn btn-info" %>
-          <%= link_to 'Eliminar',  { action: :destroy, id: child.id }, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
-        </td>
+        <td><%= link_to  "Editar", edit_child_path(child), class: "btn btn-info" %>
+            <%= link_to 'Eliminar', child, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
+        </td>       
+        </td> 
       </tr>
     <% end %> 
   </tbody>

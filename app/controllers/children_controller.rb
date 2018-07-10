@@ -23,9 +23,14 @@ class ChildrenController < ApplicationController
 
   def update
     @child.update(child_params)
-    redirect_to children_path
+    redirect_to @child.parent
   end
   
+  def destroy
+    @child.destroy
+    redirect_to @child.parent
+  end
+
   private
     def child_params
       params.require(:child).permit(:first_name, :last_name, :age, :identification)
