@@ -17,6 +17,14 @@ class ChildrenController < ApplicationController
       end
     end 
   end
+
+  def edit
+  end
+
+  def update
+    @child.update(child_params)
+    redirect_to children_path
+  end
   
   private
     def child_params
