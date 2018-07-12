@@ -11,11 +11,20 @@ class ParentsController < ApplicationController
 
   def create
     @parent = Parent.new(parent_params)
-    @parent.save
-    redirect_to @parent
+    if @parent.save
+      flash[:success] = "información creada con éxito"
+      redirect_to @parent
+    else
+      flash[:error] = "La información no pudo ser guardada debido a #{@parent.errors.full_messages.to_sentence}" 
+        redirect_to new_parent_path
+    end
   end
 
   def show
+    unless @parent
+      flash[:error] = "El padre no existe"
+      redirect_to root_path
+    end
   end
 
   def destroy
