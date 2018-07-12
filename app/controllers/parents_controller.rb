@@ -21,14 +21,11 @@ class ParentsController < ApplicationController
   end
 
   def show
-    unless @parent
-      flash[:error] = "El padre no existe"
-      redirect_to root_path
-    end
   end
 
   def destroy
     @parent.destroy
+    flash[:success] = "Padre Eliminado"
     redirect_to parents_path
   end
 
@@ -36,8 +33,13 @@ class ParentsController < ApplicationController
   end
 
   def update
-    @parent.update(parent_params)
-    redirect_to parents_path
+    if @parent.update(parent_params)
+      flash[:success] = "Padre Actualizdo"
+      redirect_to parents_path
+    else
+      flash[:error] = "La información no pudo ser guardada debido a #{@parent.errors.full_messages.to_sentence}" 
+      render :edit
+    end
   end
   
   private
@@ -47,6 +49,10 @@ class ParentsController < ApplicationController
 
     def fetch_parent
       @parent = Parent.find_by(id: params[:id])
+      unless @parent
+        flash[:error] = "El padre no existe"
+        redirect_to root_path     
+      end
     end
 
 end
