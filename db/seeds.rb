@@ -32,7 +32,7 @@ end
       last_name: Faker::Name.last_name, 
       age: Faker::Number.number(1), 
       identification: Faker::Number.number(8), 
-      parent_id: Faker::Number.between(1, 10) 
+      parent_id: Faker::Number.between(26, 35) 
     }
   )
 end
