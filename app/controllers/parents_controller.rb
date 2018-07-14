@@ -12,7 +12,7 @@ class ParentsController < ApplicationController
   def create
     @parent = Parent.new(parent_params)
     if @parent.save
-      flash[:success] = "información creada con éxito"
+      flash[:success] = "Padre creado con éxito"
       redirect_to @parent
     else
       render 'new'
@@ -24,7 +24,7 @@ class ParentsController < ApplicationController
 
   def destroy
     @parent.destroy
-    flash[:error] = "Padre Eliminado"
+    flash[:error] = "Padre eliminado con éxito"
     redirect_to parents_path
   end
 
@@ -33,7 +33,7 @@ class ParentsController < ApplicationController
 
   def update
     if @parent.update(parent_params)
-      flash[:success] = "Padre Actualizdo"
+      flash[:success] = "Padre actualizado con éxito"
       redirect_to parents_path
     else
       render :edit

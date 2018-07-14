@@ -10,6 +10,7 @@ class ChildrenController < ApplicationController
       parent = Parent.find(params[:parent_id])
       child = parent.children.new(child_params)
       if child.save
+        flash[:success] = "Hijo creado con éxito"
         redirect_to parent
       else
         @errors = child.errors.full_messages
@@ -23,6 +24,7 @@ class ChildrenController < ApplicationController
 
   def update
     if @child.update(child_params)
+      flash[:success] = "Hijo actualizado con éxito"
       redirect_to @child.parent
     else 
       render 'edit'
@@ -31,6 +33,7 @@ class ChildrenController < ApplicationController
   
   def destroy
     @child.destroy
+    flash[:error] = "Hijo eliminado con éxito"
     redirect_to @child.parent
   end
 
