@@ -18,6 +18,10 @@
         <%= f.label :Tarjeta_de_identidad %>
         <%= f.number_field :identification, class: "form-control" %>
       </div>
+      <div class="form-group">
+        <%= f.label :EPS %>
+        <%= f.text_field :health_provider, class: "form-control" %>
+      </div> 
       <%= f.submit class: "btn btn-info" %>
     <% end %>
   </div>
