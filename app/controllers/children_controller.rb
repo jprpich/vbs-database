@@ -22,8 +22,11 @@ class ChildrenController < ApplicationController
   end
 
   def update
-    @child.update(child_params)
-    redirect_to @child.parent
+    if @child.update(child_params)
+      redirect_to @child.parent
+    else 
+      render 'edit'
+    end
   end
   
   def destroy
