@@ -28,7 +28,7 @@ class ChildrenController < ApplicationController
   def update
     if @child.update(child_params)
       flash[:success] = "Hijo actualizado con éxito"
-      redirect_to @child.parent
+      redirect_to children_path
     else 
       render 'edit'
     end

@@ -22,7 +22,7 @@
         <td><%= child.health_provider %></td>
         <td>
           <% if child.crew_leader.present? %>
-            <%= child.crew_leader.first_name %>
+            <%= link_to child.crew_leader.first_name, child.crew_leader %>
           <% end %>
         </td>
         <td><%= link_to  "Editar", edit_child_path(child), class: "btn btn-info" %>
