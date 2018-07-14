@@ -15,8 +15,7 @@ class ParentsController < ApplicationController
       flash[:success] = "información creada con éxito"
       redirect_to @parent
     else
-      flash[:error] = "La información no pudo ser guardada debido a #{@parent.errors.full_messages.to_sentence}" 
-        redirect_to new_parent_path
+      render 'new'
     end
   end
 
@@ -25,7 +24,7 @@ class ParentsController < ApplicationController
 
   def destroy
     @parent.destroy
-    flash[:success] = "Padre Eliminado"
+    flash[:error] = "Padre Eliminado"
     redirect_to parents_path
   end
 
@@ -37,7 +36,6 @@ class ParentsController < ApplicationController
       flash[:success] = "Padre Actualizdo"
       redirect_to parents_path
     else
-      flash[:error] = "La información no pudo ser guardada debido a #{@parent.errors.full_messages.to_sentence}" 
       render :edit
     end
   end
