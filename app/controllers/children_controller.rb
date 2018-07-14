@@ -1,6 +1,6 @@
 class ChildrenController < ApplicationController
   before_action :authenticate_hacker!
-  before_action :fetch_child, only: [:update, :edit, :destroy]
+  before_action :fetch_child, only: [:update, :edit, :destroy, :show]
   def index
     @children = Child.paginate(:page => params[:page], :per_page => 10).order('first_name ASC')
   end
@@ -17,6 +17,9 @@ class ChildrenController < ApplicationController
         redirect_to parent, :flash => { :error => @errors }
       end
     end 
+  end
+
+  def show
   end
 
   def edit
@@ -39,7 +42,7 @@ class ChildrenController < ApplicationController
 
   private
     def child_params
-      params.require(:child).permit(:first_name, :last_name, :age, :identification, :health_provider)
+      params.require(:child).permit(:first_name, :last_name, :age, :identification, :health_provider, :crew_leader_id )
     end
 
     def fetch_child

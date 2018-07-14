@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   end
   
   resources :children
+  resources :crew_leaders
 
 end

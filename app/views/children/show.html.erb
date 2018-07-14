@@ -1,0 +1,19 @@
+<h3 align="center">Asigna El Crew Leader a este niño</h3>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <%= form_for @child do |f| %>
+      <div class="form-group">
+        <!--  <label for="crew_leader_id">Crew Leader: </label> -->
+        <%= collection_select(
+            :child, # field namespace 
+            :crew_leader_id, # field name
+            CrewLeader.all, 
+            :id, 
+            :first_name, # this is name of method that will be called for every row,
+            :prompt => true  
+        ) %>
+      </div>
+      <%= f.submit class: "btn btn-info" %>
+    <%end%>
+  </div>
+</div>

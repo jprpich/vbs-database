@@ -1,4 +1,4 @@
-<h2>Niños VBS Colombia</h2>
+<h2><%= @crew_leader.first_name %> <%= @crew_leader.last_name %>'s Crew</h2>
 <table class="table">
   <thead class="thead-light">
   <tr>
@@ -7,24 +7,17 @@
     <th>Edad</th>
     <th>Tarjeta de Identidad</th>
     <th>EPS</th>
-    <th>Crew Leader</th>
     <th>Opciones</th>
   </tr>
   </thead>
-  <div class="digg_pagination"><%= will_paginate @children, :page_links => false %></div>
   <tbody>
-    <% @children.each do |child| %> 
+    <% @crew_leader.children.each do |child| %> 
       <tr>
         <td><%= link_to child.first_name, child %></td>
         <td><%= child.last_name %></td>
         <td><%= child.age %></td>
         <td><%= child.identification %></td>
         <td><%= child.health_provider %></td>
-        <td>
-          <% if child.crew_leader.present? %>
-            <%= child.crew_leader.first_name %>
-          <% end %>
-        </td>
         <td><%= link_to  "Editar", edit_child_path(child), class: "btn btn-info" %>
             <%= link_to 'Eliminar', child, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
         </td>       
@@ -33,3 +26,4 @@
     <% end %> 
   </tbody>
 </table>
+

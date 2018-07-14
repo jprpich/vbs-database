@@ -12,7 +12,7 @@
 
 #  
 
-10.times do 
+5.times do 
   Parent.create(
     {
       first_name: Faker::FunnyName.name, 
@@ -25,15 +25,29 @@
   )
 end
 
-50.times do 
+10.times do 
   Child.create(
     {
       first_name: Faker::Name.first_name, 
       last_name: Faker::Name.last_name, 
       age: Faker::Number.number(1), 
       identification: Faker::Number.number(8), 
-      parent_id: Faker::Number.between(26, 35) 
+      parent_id: Faker::Number.between(1, 5) 
     }
   )
 end
+
+3.times do 
+  CrewLeader.create(
+    {
+      first_name: Faker::FunnyName.name, 
+      last_name: Faker::FunnyName.name, 
+      phone: Faker::Number.number(10), 
+      email: Faker::Internet.email, 
+      church: Faker::Team.name, 
+    }
+  )
+end
+
+
     
