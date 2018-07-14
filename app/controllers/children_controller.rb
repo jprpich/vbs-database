@@ -13,7 +13,7 @@ class ChildrenController < ApplicationController
         redirect_to parent
       else
         @errors = child.errors.full_messages
-        redirect_to parent, notice: 'No se permiten crear hijos sin padres asociados'
+        redirect_to parent, :flash => { :error => @errors }
       end
     end 
   end
