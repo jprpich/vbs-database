@@ -25,8 +25,8 @@
             <%= link_to child.crew_leader.first_name, child.crew_leader %>
           <% end %>
         </td>
-        <td><%= link_to  "Editar", edit_child_path(child), class: "btn btn-info" %>
-            <%= link_to 'Eliminar', child, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
+        <td><%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_child_path(child), class: "btn btn-info" %>
+            <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, child, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
         </td>       
         </td> 
       </tr>
