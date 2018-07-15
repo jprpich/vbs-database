@@ -1,7 +1,6 @@
 class ChildrenController < ApplicationController
   before_action :authenticate_hacker!
   before_action :fetch_child, only: [:update, :edit, :destroy, :show]
-  before_action :ensure_is_admin
   before_action :ensure_is_admin, except: :index
   def index
     @children = Child.paginate(:page => params[:page], :per_page => 10).order('first_name ASC')
