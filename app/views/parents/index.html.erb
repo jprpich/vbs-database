@@ -22,8 +22,8 @@
         <td><%= parent.church %></td>
         <td><%= parent.amount_paid %></td>
         <td>
-          <%= link_to  "Editar", edit_parent_path(parent), class: "btn btn-info" %>
-          <%= link_to 'Eliminar',  { action: :destroy, id: parent.id }, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
+          <%= link_to  '<i class="fas fa-edit"></i>'.html_safe, edit_parent_path(parent), class: "btn btn-info" %>
+          <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe,  { action: :destroy, id: parent.id }, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
         </td>
       </tr>
     <% end %> 
