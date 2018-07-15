@@ -1,7 +1,8 @@
 class ParentsController < ApplicationController
   before_action :authenticate_hacker!
   before_action :fetch_parent, only: [:update, :edit, :destroy, :show]
-  before_action :ensure_is_admin, except: :index
+  before_action :ensure_is_admin, only: [:edit, :update, :destroy]
+  before_action :ensure_is_editor, only:[:index, :show, :new, :create]
   def index
     @parents = Parent.paginate(:page => params[:page], :per_page => 10).order('first_name ASC')
   end
