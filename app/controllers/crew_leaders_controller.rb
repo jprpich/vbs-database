@@ -1,6 +1,8 @@
 class CrewLeadersController < ApplicationController
   before_action :authenticate_hacker!
   before_action :fetch_crew_leader, only: [:update, :edit, :destroy, :show]
+  before_action :ensure_is_admin
+  before_action :ensure_is_admin, except: :index
   def index
     @crew_leaders = CrewLeader.paginate(:page => params[:page], :per_page => 10).order('first_name ASC')
   end
