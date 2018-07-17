@@ -9,7 +9,8 @@
       <th>Tarjeta de Identidad</th>
       <th>EPS</th>
       <th>Crew Leader</th>
-      <th>Opciones</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
     </tr>
     </thead>
     <div class="digg_pagination"><%= will_paginate @children, :page_links => false %></div>
@@ -27,9 +28,10 @@
             <% end %>
           </td>
           <td><%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_child_path(child), class: "btn btn-info" %>
+          </td>
+          <td>
               <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, child, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
-          </td>       
-          </td> 
+          </td>        
         </tr>
       <% end %> 
     </tbody>

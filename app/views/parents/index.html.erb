@@ -9,7 +9,8 @@
       <th>Teléfono</th>
       <th>Iglesia</th>
       <th>Valor Cancelado</th>
-      <th>Opciones</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
     </tr>
     </thead>
     <div class="digg_pagination"><%= will_paginate @parents, :page_links => false %></div>
@@ -24,6 +25,8 @@
           <td><%= parent.amount_paid %></td>
           <td>
             <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_parent_path(parent), class: "btn btn-info" %>
+          </td>
+          <td>
             <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, { action: :destroy, id: parent.id }, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
           </td>
         </tr>

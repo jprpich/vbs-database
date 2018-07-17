@@ -9,7 +9,8 @@
       <th>Edad</th>
       <th>Tarjeta de Identidad</th>
       <th>EPS</th>
-      <th>Opciones</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
     </tr>
     </thead>
     <tbody>
@@ -21,6 +22,8 @@
           <td><%= child.identification %></td>
           <td><%= child.health_provider %></td>
           <td><%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_child_path(child), class: "btn btn-info" %>
+          </td>
+          <td>
               <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, child, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
           </td>
         </tr>
