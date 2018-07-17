@@ -21,7 +21,7 @@
         <td><%= crew_leader.church %></td>
         <td>
           <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_crew_leader_path(crew_leader), class: "btn btn-info" %>
-          <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe,  { action: :destroy, id: crew_leader.id }, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
+          <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, { action: :destroy, id: crew_leader.id }, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
         </td>
       </tr>
     <% end %> 
