@@ -1,35 +1,37 @@
 <h2>Niños VBS Colombia</h2>
-<table class="table">
-  <thead class="thead-light">
-  <tr>
-    <th>Nombre</th>
-    <th>Apellido</th>
-    <th>Edad</th>
-    <th>Tarjeta de Identidad</th>
-    <th>EPS</th>
-    <th>Crew Leader</th>
-    <th>Opciones</th>
-  </tr>
-  </thead>
-  <div class="digg_pagination"><%= will_paginate @children, :page_links => false %></div>
-  <tbody>
-    <% @children.each do |child| %> 
-      <tr>
-        <td><%= link_to child.first_name, child %></td>
-        <td><%= child.last_name %></td>
-        <td><%= child.age %></td>
-        <td><%= child.identification %></td>
-        <td><%= child.health_provider %></td>
-        <td>
-          <% if child.crew_leader.present? %>
-            <%= link_to child.crew_leader.first_name, child.crew_leader %>
-          <% end %>
-        </td>
-        <td><%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_child_path(child), class: "btn btn-info" %>
-            <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, child, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
-        </td>       
-        </td> 
-      </tr>
-    <% end %> 
-  </tbody>
-</table>
+<div class="table-responsive-sm">
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Edad</th>
+      <th>Tarjeta de Identidad</th>
+      <th>EPS</th>
+      <th>Crew Leader</th>
+      <th>Opciones</th>
+    </tr>
+    </thead>
+    <div class="digg_pagination"><%= will_paginate @children, :page_links => false %></div>
+    <tbody>
+      <% @children.each do |child| %> 
+        <tr>
+          <td><%= link_to child.first_name, child %></td>
+          <td><%= child.last_name %></td>
+          <td><%= child.age %></td>
+          <td><%= child.identification %></td>
+          <td><%= child.health_provider %></td>
+          <td>
+            <% if child.crew_leader.present? %>
+              <%= link_to child.crew_leader.first_name, child.crew_leader %>
+            <% end %>
+          </td>
+          <td><%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_child_path(child), class: "btn btn-info" %>
+              <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, child, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
+          </td>       
+          </td> 
+        </tr>
+      <% end %> 
+    </tbody>
+  </table>
+</div>

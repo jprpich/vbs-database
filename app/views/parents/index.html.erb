@@ -1,30 +1,33 @@
 <h2 class="test-class">Padres VBS Colombia</h2>
-<table class="table">
-  <thead class="thead-light">
-  <tr>
-    <th>Nombre(s)</th>
-    <th>Apellidos(s)</th>
-    <th>Email</th>
-    <th>Teléfono</th>
-    <th>Iglesia</th>
-    <th>Valor Cancelado</th>
-    <th>Opciones</th>
-  </tr>
-  </thead>
-  <div class="digg_pagination"><%= will_paginate @parents, :page_links => false %></div>
-  <tbody>
-    <% @parents.each do |parent| %> 
-      <tr>
-        <td><%= link_to parent.first_name, parent_path(parent) %></td>
-        <td><%= parent.last_name %></td>
-        <td><%= parent.email %></td>
-        <td><%= parent.phone %></td>
-        <td><%= parent.church %></td>
-        <td><%= parent.amount_paid %></td>
-        <td>
-          <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_parent_path(parent), class: "btn btn-info" %>
-          <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, { action: :destroy, id: parent.id }, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
-        </td>
-      </tr>
-    <% end %> 
-  </tbody>
+<div class="table-responsive-sm">
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th>Nombre(s)</th>
+      <th>Apellidos(s)</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+      <th>Iglesia</th>
+      <th>Valor Cancelado</th>
+      <th>Opciones</th>
+    </tr>
+    </thead>
+    <div class="digg_pagination"><%= will_paginate @parents, :page_links => false %></div>
+    <tbody>
+      <% @parents.each do |parent| %> 
+        <tr>
+          <td><%= link_to parent.first_name, parent_path(parent) %></td>
+          <td><%= parent.last_name %></td>
+          <td><%= parent.email %></td>
+          <td><%= parent.phone %></td>
+          <td><%= parent.church %></td>
+          <td><%= parent.amount_paid %></td>
+          <td>
+            <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_parent_path(parent), class: "btn btn-info" %>
+            <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, { action: :destroy, id: parent.id }, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %> 
+    </tbody>
+  </table>
+</div>

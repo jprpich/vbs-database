@@ -1,29 +1,31 @@
 <h2>Crew Leaders VBS Colombia</h2>
-<table class="table">
-  <thead class="thead-light">
-  <tr>
-    <th>Nombre(s)</th>
-    <th>Apellidos(s)</th>
-    <th>Email</th>
-    <th>Teléfono</th>
-    <th>Iglesia</th>
-    <th>Opciones</th>
-  </tr>
-  </thead>
-  <div class="digg_pagination"><%= will_paginate @crew_leaders, :page_links => false %></div>
-  <tbody>
-    <% @crew_leaders.each do |crew_leader| %> 
-      <tr>
-        <td><%= link_to crew_leader.first_name, crew_leader_path(crew_leader) %></td>
-        <td><%= crew_leader.last_name %></td>
-        <td><%= crew_leader.email %></td>
-        <td><%= crew_leader.phone %></td>
-        <td><%= crew_leader.church %></td>
-        <td>
-          <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_crew_leader_path(crew_leader), class: "btn btn-info" %>
-          <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, { action: :destroy, id: crew_leader.id }, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
-        </td>
-      </tr>
-    <% end %> 
-  </tbody>
-</table>
+<div class="table-responsive-sm">
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th>Nombre(s)</th>
+      <th>Apellidos(s)</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+      <th>Iglesia</th>
+      <th>Opciones</th>
+    </tr>
+    </thead>
+    <div class="digg_pagination"><%= will_paginate @crew_leaders, :page_links => false %></div>
+    <tbody>
+      <% @crew_leaders.each do |crew_leader| %> 
+        <tr>
+          <td><%= link_to crew_leader.first_name, crew_leader_path(crew_leader) %></td>
+          <td><%= crew_leader.last_name %></td>
+          <td><%= crew_leader.email %></td>
+          <td><%= crew_leader.phone %></td>
+          <td><%= crew_leader.church %></td>
+          <td>
+            <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_crew_leader_path(crew_leader), class: "btn btn-info" %>
+            <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, { action: :destroy, id: crew_leader.id }, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %> 
+    </tbody>
+  </table>
+</div>
