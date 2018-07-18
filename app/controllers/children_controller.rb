@@ -2,9 +2,12 @@ class ChildrenController < ApplicationController
   before_action :authenticate_hacker!
   before_action :fetch_child, only: [:update, :edit, :destroy, :show]
   before_action :ensure_is_admin, only: [:edit, :update, :destroy]
-  before_action :ensure_is_editor, only:[:index, :show, :create] 
+  before_action :ensure_is_editor, only: [:index, :show, :create] 
   def index
     @children = Child.order('first_name ASC')
+    if params[:first_name].present?
+      @children = @children.by_first_name(params[:first_name])
+    end
   end
 
   def create
