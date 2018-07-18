@@ -6,4 +6,8 @@ class Volunteer < ApplicationRecord
   validates :church, presence: true  
   
   enum role_type: { logistics: 0, decoration: 1 }
+
+  scope :by_role_type, -> (role_type) { 
+    where('role_type LIKE ?', "%#{role_type}%") 
+  }
 end

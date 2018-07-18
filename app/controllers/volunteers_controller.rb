@@ -5,6 +5,16 @@ class VolunteersController < ApplicationController
   before_action :ensure_is_editor, only:[:index, :show, :new, :create]
   def index
     @volunteers = Volunteer.paginate(:page => params[:page], :per_page => 10).order('first_name ASC')
+
+    if params[:first_name].present?
+      @volunteers = @volunteers.by_first_name(params[:first_name])
+    end
+    if params[:church].present?
+      @volunteers = @volunteers.by_church(params[:church])
+    end
+    if params[:role_type].present?
+      @volunteers = @volunteers.by_role_type(params[:role_type])
+    end
   end
 
   def decoration
