@@ -9,6 +9,9 @@ class ParentsController < ApplicationController
     if params[:first_name].present?
       @parents = @parents.by_first_name(params[:first_name])
     end
+    if params[:church].present?
+      @parents = @parents.by_church(params[:church])
+    end
   end
 
   def new

@@ -11,4 +11,8 @@ class Parent < ApplicationRecord
     where('lower(first_name) LIKE ?', "%#{first_name.downcase}%") 
   }
 
+  scope :by_church, -> (church) { 
+    where('lower(church) LIKE ?', "%#{church.downcase}%") 
+  }
+
 end
