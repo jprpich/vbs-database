@@ -4,8 +4,11 @@ class ParentsController < ApplicationController
   before_action :ensure_is_admin, only: [:edit, :update, :destroy]
   before_action :ensure_is_editor, only:[:index, :show, :new, :create]
   def index
-    @filtered_parents = Parent.by_first_name(params[:search_term])
-    @parents = @filtered_parents.paginate(:page => params[:page], :per_page => 10).order('first_name ASC')
+
+    @parents = Parent.paginate(:page => params[:page], :per_page => 10).order('first_name ASC')
+    if params[:first_name].present?
+      @parents = @parents.by_first_name(params[:first_name])
+    end
   end
 
   def new
