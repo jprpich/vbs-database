@@ -31,6 +31,7 @@ class CrewLeadersController < ApplicationController
   end
 
   def destroy
+    @crew_leader.children.clear
     @crew_leader.destroy
     flash[:error] = "Crew Leader eliminado con éxito"
     redirect_to crew_leaders_path
