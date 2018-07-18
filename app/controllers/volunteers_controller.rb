@@ -50,7 +50,7 @@ class VolunteersController < ApplicationController
   
   private
     def volunteer_params
-      params.require(:volunteer).permit(:first_name,:last_name, :email, :phone, :church, :role_type)
+      params.require(:volunteer).permit(:first_name,:last_name, :email, :phone, :church, :age, :identification, :role_type)
     end
 
     def fetch_volunteer

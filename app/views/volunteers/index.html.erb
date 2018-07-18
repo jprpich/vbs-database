@@ -8,7 +8,10 @@
       <th>Email</th>
       <th>Teléfono</th>
       <th>Iglesia</th>
+      <th>Edad</th>
+      <th>Identificacíon</th>
       <th>Rol</th>
+
       <th>Editar</th>
       <th>Eliminar</th>
     </tr>
@@ -22,6 +25,8 @@
           <td><%= volunteer.email %></td>
           <td><%= volunteer.phone %></td>
           <td><%= volunteer.church %></td>
+          <td><%= volunteer.age %></td>
+          <td><%= volunteer.identification %></td>
           <td><%= volunteer.role_type.titleize %></td>
           <td>
             <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_volunteer_path(volunteer), class: "btn btn-info" %>
