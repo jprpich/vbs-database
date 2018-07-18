@@ -10,8 +10,9 @@
             CrewLeader.all, 
             :id, 
             :first_name, # this is name of method that will be called for every row,
-            :prompt => true  
-        ) %>
+            {prompt: "Selecciona el Crew Leader"}, 
+            {class: "form-control"}
+        )  %>
       </div>
       <%= f.submit class: "btn btn-info" %>
     <%end%>
