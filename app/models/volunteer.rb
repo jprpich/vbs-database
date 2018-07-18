@@ -7,7 +7,5 @@ class Volunteer < ApplicationRecord
   
   enum role_type: { logistics: 0, decoration: 1 }
 
-  scope :by_role_type, -> (role_type) { 
-    where('role_type LIKE ?', "%#{role_type}%") 
-  }
+  scope :by_role_type, -> (role_type) { where("role_type = ?", role_type) }
 end
