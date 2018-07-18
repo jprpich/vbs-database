@@ -5,6 +5,12 @@ class CrewLeadersController < ApplicationController
   before_action :ensure_is_editor, only:[:index, :show, :new, :create]
   def index
     @crew_leaders = CrewLeader.order('first_name ASC')
+    if params[:first_name].present?
+      @crew_leaders = @crew_leaders.by_first_name(params[:first_name])
+    end
+    if params[:church].present?
+      @crew_leaders = @crew_leaders.by_church(params[:church])
+    end
   end
 
   def new
