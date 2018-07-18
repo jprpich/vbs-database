@@ -25,14 +25,17 @@
   )
 end
 
+
 10.times do 
+  parent = Parent.all.sample
   Child.create(
     {
       first_name: Faker::Name.first_name, 
       last_name: Faker::Name.last_name, 
       age: Faker::Number.number(1), 
       identification: Faker::Number.number(8), 
-      parent_id: Faker::Number.between(1, 5) 
+      health_provider: Faker::Coffee.origin, 
+      parent_id: parent.id
     }
   )
 end
