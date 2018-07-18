@@ -4,7 +4,7 @@ class ChildrenController < ApplicationController
   before_action :ensure_is_admin, only: [:edit, :update, :destroy]
   before_action :ensure_is_editor, only:[:index, :show, :create] 
   def index
-    @children = Child.paginate(:page => params[:page], :per_page => 10).order('first_name ASC')
+    @children = Child.order('first_name ASC')
   end
 
   def create

@@ -31,7 +31,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
-gem 'will_paginate', '~> 3.1.0'
 gem 'devise'
 gem 'faker'
 

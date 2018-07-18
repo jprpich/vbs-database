@@ -4,7 +4,7 @@ class VolunteersController < ApplicationController
   before_action :ensure_is_admin, only: [:edit, :update, :destroy]
   before_action :ensure_is_editor, only:[:index, :show, :new, :create]
   def index
-    @volunteers = Volunteer.paginate(:page => params[:page], :per_page => 10).order('first_name ASC')
+    @volunteers = Volunteer.order('first_name ASC')
 
     if params[:first_name].present?
       @volunteers = @volunteers.by_first_name(params[:first_name])

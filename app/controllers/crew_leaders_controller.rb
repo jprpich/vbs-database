@@ -4,7 +4,7 @@ class CrewLeadersController < ApplicationController
   before_action :ensure_is_admin, only: [:edit, :update, :destroy]
   before_action :ensure_is_editor, only:[:index, :show, :new, :create]
   def index
-    @crew_leaders = CrewLeader.paginate(:page => params[:page], :per_page => 10).order('first_name ASC')
+    @crew_leaders = CrewLeader.order('first_name ASC')
   end
 
   def new

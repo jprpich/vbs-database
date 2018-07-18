@@ -5,7 +5,7 @@ class ParentsController < ApplicationController
   before_action :ensure_is_editor, only:[:index, :show, :new, :create]
   def index
 
-    @parents = Parent.paginate(:page => params[:page], :per_page => 10).order('first_name ASC')
+    @parents = Parent.order('first_name ASC')
     if params[:first_name].present?
       @parents = @parents.by_first_name(params[:first_name])
     end
