@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   
   resources :children
   resources :crew_leaders
-
+  resources :volunteers
 end

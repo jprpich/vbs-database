@@ -1,0 +1,36 @@
+<h2>Volunteers VBS Colombia</h2>
+<div class="table-responsive-sm">
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th>Nombre(s)</th>
+      <th>Apellidos(s)</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+      <th>Iglesia</th>
+      <th>Rol</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+    </thead>
+    <div class="digg_pagination"><%= will_paginate @volunteers, :page_links => false %></div>
+    <tbody>
+      <% @volunteers.each do |volunteer| %> 
+        <tr>
+          <td><%= link_to volunteer.first_name, volunteer_path(volunteer) %></td>
+          <td><%= volunteer.last_name %></td>
+          <td><%= volunteer.email %></td>
+          <td><%= volunteer.phone %></td>
+          <td><%= volunteer.church %></td>
+          <td><%= volunteer.role_type.titleize %></td>
+          <td>
+            <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_volunteer_path(volunteer), class: "btn btn-info" %>
+          </td>
+          <td>
+            <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, { action: :destroy, id: volunteer.id }, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %> 
+    </tbody>
+  </table>
+</div>

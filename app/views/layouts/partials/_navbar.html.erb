@@ -18,11 +18,22 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Volunteers
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Decoration", volunteers_path, class: "dropdown-item" %>
+          <%= link_to "Logistics", volunteers_path, class: "dropdown-item" %>
+          <%= link_to "Crear Volunteer", new_volunteer_path, class: "dropdown-item" %>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Opciones
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to "Crear Padre", new_parent_path, class: "dropdown-item" %>
           <%= link_to "Crear Crew Leader", new_crew_leader_path, class: "dropdown-item" %>
+          <%= link_to "Crear Volunteer", new_volunteer_path, class: "dropdown-item" %>
         </div>
       </li>
     </ul>

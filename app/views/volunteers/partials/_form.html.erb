@@ -1,0 +1,41 @@
+<%= render 'shared/errors', obj: @volunteer %>
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <%= form_for @volunteer do |f| %>
+
+      <div class="form-group">
+        <%= f.label :Nombres %>
+        <%= f.text_field :first_name, class: "form-control" %>
+      </div> 
+      <div class="form-group">
+        <%= f.label :Apellidos %>
+        <%= f.text_field :last_name, class: "form-control" %>
+      </div> 
+      <div class="form-group">
+        <%= f.label :Email %>
+        <%= f.email_field :email, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :Teléfono %>
+        <%= f.text_field :phone, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :Iglesia %>
+        <%= f.text_field :church, class: "form-control" %>
+      </div> 
+      <div class="form-group">
+        <%= f.label :edad %>
+        <%= f.number_field :age, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :identificación %>
+        <%= f.number_field :identification, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :escoger_rol %>
+        <%= f.select(:role_type, Volunteer.role_types.keys.map {|role| [role.titleize,role]}, class: "form-control") %>
+      </div>
+      <%= f.submit class: "btn btn-info" %>
+    <% end %>
+  </div>
+</div>
