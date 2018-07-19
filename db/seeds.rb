@@ -12,7 +12,7 @@
 
 #  
 
-5.times do 
+115.times do 
   Parent.create(
     {
       first_name: Faker::FunnyName.name, 
@@ -26,7 +26,7 @@
 end
 
 
-10.times do 
+200.times do 
   parent = Parent.all.sample
   Child.create(
     {
@@ -40,7 +40,7 @@ end
   )
 end
 
-3.times do 
+40.times do 
   CrewLeader.create(
     {
       first_name: Faker::FunnyName.name, 

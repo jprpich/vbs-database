@@ -1,7 +1,7 @@
 class ChildrenController < ApplicationController
   before_action :authenticate_hacker!
   before_action :fetch_child, only: [:update, :edit, :destroy, :show]
-  before_action :ensure_is_admin, only: [:edit, :update, :destroy]
+  before_action :ensure_is_admin, only: [:edit, :update, :destroy, :asign_crews]
   before_action :ensure_is_editor, only: [:index, :show, :create] 
   def index
     @children = Child.order('first_name ASC')
