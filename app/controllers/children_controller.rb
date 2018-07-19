@@ -39,6 +39,32 @@ class ChildrenController < ApplicationController
     end
   end
   
+  def asign_crews
+    @crew_leaders = CrewLeader.all
+    @crew_leaders.each do |crew_leader|
+      crew_leader.children.clear
+    end
+    @children = Child.all
+    @children.each do |child|
+      crew_leader_sample = CrewLeader.all.sample
+      if crew_leader_sample.children.count < 5
+        child.crew_leader = crew_leader_sample
+        child.save
+      else
+        crew_leader_sample = CrewLeader.all.sample
+        if crew_leader_sample.children.count < 5
+          child.crew_leader = crew_leader_sample
+          child.save
+        else 
+          crew_leader_sample = CrewLeader.all.sample
+          child.crew_leader = crew_leader_sample
+          child.save
+        end
+      end
+    end
+    redirect_to children_path
+  end
+
   def destroy
     @child.destroy
     flash[:error] = "Hijo eliminado con éxito"

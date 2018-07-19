@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :children, only: :create
   end
   
+  get 'asign_crews', to: 'children#asign_crews'
+
   resources :children
   resources :crew_leaders
   resources :volunteers
