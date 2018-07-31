@@ -4,33 +4,33 @@ class Hackers::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
-  GET /resource/sign_up
-  def new
-    super
-  end
+  # GET /resource/sign_up
+  # def new
+  #   super
+  # end
 
-  POST /resource
-  def create
-    super
-    @user = current_user
-    UserNotifier.send_signup_email(@user).deliver
-    debugger
-  end
+  # POST /resource
+  # def create
+  #   super
+  #   @user = current_user
+  #   UserNotifier.send_signup_email(@user).deliver
+  #   debugger
+  # end
 
-  GET /resource/edit
-  def edit
-    super
-  end
+  # GET /resource/edit
+  # def edit
+  #   super
+  # end
 
-  PUT /resource
-  def update
-    super
-  end
+  # PUT /resource
+  # def update
+  #   super
+  # end
 
-  DELETE /resource
-  def destroy
-    super
-  end
+  # DELETE /resource
+  # def destroy
+  #   super
+  # end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
