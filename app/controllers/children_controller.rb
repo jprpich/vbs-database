@@ -44,20 +44,18 @@ class ChildrenController < ApplicationController
     @crew_leaders.each do |crew_leader|
       crew_leader.children.clear
     end
-    @children = Child.all
-    @children.each do |child|
-      crew_leader_sample = CrewLeader.all.sample
-      if crew_leader_sample.children.count < 5
-        child.crew_leader = crew_leader_sample
-        child.save
-      else
-        crew_leader_sample = CrewLeader.all.sample
-        if crew_leader_sample.children.count < 5
-          child.crew_leader = crew_leader_sample
+
+    crew_leader = CrewLeader.first 
+
+    @children = Child.all 
+    @children.each do |child| 
+      if crew_leader
+        if crew_leader.children.count < 5
+          child.crew_leader = crew_leader
           child.save
-        else 
-          crew_leader_sample = CrewLeader.all.sample
-          child.crew_leader = crew_leader_sample
+        else
+          crew_leader = crew_leader.next
+          child.crew_leader = crew_leader
           child.save
         end
       end

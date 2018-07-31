@@ -26,13 +26,13 @@
 end
 
 
-200.times do 
+100.times do 
   parent = Parent.all.sample
   Child.create(
     {
       first_name: Faker::Name.first_name, 
       last_name: Faker::Name.last_name, 
-      age: Faker::Number.number(1), 
+      age: Faker::Number.between(5, 12), 
       identification: Faker::Number.number(8), 
       health_provider: Faker::Coffee.origin, 
       parent_id: parent.id
@@ -40,7 +40,7 @@ end
   )
 end
 
-40.times do 
+36.times do 
   CrewLeader.create(
     {
       first_name: Faker::FunnyName.name, 

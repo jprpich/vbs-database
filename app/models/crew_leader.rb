@@ -5,4 +5,9 @@ class CrewLeader < ApplicationRecord
   validates :email, presence: true  
   validates :church, presence: true  
   has_many :children
+
+
+  def next
+    self.class.where("id > ?", id).first
+  end
 end
