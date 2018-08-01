@@ -44,7 +44,7 @@
           <td><%= volunteer.church %></td>
           <td><%= volunteer.age %></td>
           <td><%= volunteer.identification %></td>
-          <td><%= volunteer.role_type.titleize %></td>
+          <td><%= volunteer.role_type.titleize if volunteer.role_type?%></td>
           <td>
             <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_volunteer_path(volunteer), class: "btn btn-info" %>
           </td>
