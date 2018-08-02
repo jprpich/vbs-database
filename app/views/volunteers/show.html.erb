@@ -1,1 +1,17 @@
-<h2>Volunteers Show Page Under Construction</h2>
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= @volunteer.first_name %> <%= @volunteer.last_name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= @volunteer.role_type.titleize %></h6>
+        <p class="card-text">Teléfono: <%= @volunteer.phone %></p>
+        <p>Email: <%= @volunteer.email %></p>
+        <p>Iglesia: <%= @volunteer.church %></p>
+        <p>Edad: <%= @volunteer.age %></p>
+        <p>Número de Identificación: <%= @volunteer.identification %></p>
+         <%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_volunteer_path(@volunteer), class: "btn btn-info card-link" %>
+        <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, { action: :destroy, id: @volunteer.id }, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger card-link" %>
+      </div>
+    </div>
+  </div>
+</div>
