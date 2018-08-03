@@ -43,7 +43,7 @@ class CrewLeadersController < ApplicationController
   def update
     if @crew_leader.update(crew_leader_params)
       flash[:success] = "Crew Leader actualizado con éxito"
-      redirect_to crew_leaders_path
+      redirect_to @crew_leader
     else
       render :edit
     end

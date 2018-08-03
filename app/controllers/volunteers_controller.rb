@@ -52,7 +52,7 @@ class VolunteersController < ApplicationController
   def update
     if @volunteer.update(volunteer_params)
       flash[:success] = "Volunteer actualizado con éxito"
-      redirect_to volunteers_path
+      redirect_to @volunteer
     else
       render :edit
     end

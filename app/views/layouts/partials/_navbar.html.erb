@@ -7,37 +7,36 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Padres
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "Listar Padres", parents_path, class: "dropdown-item" %>
-          <%= link_to "Crear Padre", new_parent_path, class: "dropdown-item" %>
-        </div>
-      </li>
+
+
       <li class="nav-item">
-        <a class="nav-link" href="/children">Niños</a>
+        <%= link_to "Padres", parents_path, class: "nav-link" %>
       </li>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Crew Leaders
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "Listar Crew Leaders", crew_leaders_path, class: "dropdown-item" %>
-          <%= link_to "Crear Crew Leader", new_crew_leader_path, class: "dropdown-item" %>
-        </div>
+      <li class="nav-item">
+        <%= link_to "Crear Padre", new_parent_path, class: "nav-link" %>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Volunteers
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "Listar Volunteers", volunteers_path, class: "dropdown-item" %>
-          <%= link_to "Crear Volunteer", new_volunteer_path, class: "dropdown-item" %>
-        </div>
+
+      <li class="nav-item">
+        <%= link_to "Niños", children_path, class: "nav-link" %>
       </li>
+
+      <li class="nav-item">
+         <%= link_to "Crew Leaders", crew_leaders_path, class: "nav-link" %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Crear Crew Leader", new_crew_leader_path, class: "nav-link" %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Volunteers", volunteers_path, class: "nav-link" %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Crear Volunteer", new_volunteer_path, class: "nav-link" %>
+      </li>
+
     </ul>
     <ul class="navbar-nav ml-auto">
       <% if hacker_signed_in? %>
