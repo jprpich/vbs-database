@@ -12,11 +12,19 @@
   </head>
 
   <body>
-    <%= render 'layouts/partials/navbar' %>
-    <div class="container">
-      <%= render 'layouts/partials/messages' %>
-      <%= yield %>
-    </div>
-    <%= render 'layouts/partials/footer' %>
+    <!-- Sidebar -->
+    <div id="wrapper">
+        <%= render 'layouts/partials/sidebar' %>
+        <div id="#page-content-wrapper">
+          <%= render 'layouts/partials/navbar' %>
+          <div class="container">
+          <br>
+          <%= render 'layouts/partials/messages' %>
+          <%= yield %>
+        </div>
+        <%= render 'layouts/partials/footer' %>
+      </div>
+    <div id="wrapper">
+
   </body>
 </html>
