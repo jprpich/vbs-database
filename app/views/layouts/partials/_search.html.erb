@@ -1,0 +1,9 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">Padres VBS Colombia</a>
+  <%= form_tag parents_path, method: :get, class: "form-inline" do %>
+      <%= text_field_tag :first_name, params[:first_name], class: "form-control mr-sm-2", placeholder: "Nombre" %>
+      <br><br>
+      <%= text_field_tag :church, params[:church], class: "form-control mr-sm-2", placeholder: "Iglesia" %>
+    <%= submit_tag "Buscar", name: nil, class: "btn btn-outline-info my-2 my-sm-0" %>
+  <% end %>
+</nav>
