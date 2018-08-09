@@ -1,18 +1,13 @@
-<h2>Crew Leaders VBS Colombia</h2>
-<br>
-<div class="row">
-  <div class="col-sm-4 col-sm-offset-4">
-    <%= form_tag crew_leaders_path, method: :get do %>
-      <div class="form-group">
-        <%= text_field_tag :first_name, params[:first_name], class: "form-control", placeholder: "Nombre" %>
-      </div>
-      <div class="form-group">
-        <%= text_field_tag :church, params[:church], class: "form-control", placeholder: "Iglesia" %>
-      </div>
-      <%= submit_tag "Buscar", name: nil, class: "form-control btn btn-info" %>
-    <% end %>
-  </div>
-</div>
+<nav class="navbar navbar-light bg-light">
+  <a class="nav-link">Crew Leaders VBS Colombia</a>
+  <%= form_tag crew_leaders_path, method: :get, class: "form-inline" do %>
+      <%= text_field_tag :first_name, params[:first_name], class: "form-control mr-sm-2", placeholder: "Nombre" %>
+      <br><br>
+      <%= text_field_tag :church, params[:church], class: "form-control mr-sm-2", placeholder: "Iglesia" %>
+    <%= submit_tag "Buscar", name: nil, class: "btn btn-outline-info my-2 my-sm-0" %>
+  <% end %>
+</nav>
+
 <div class="table-responsive-sm">
   <table class="table">
     <thead class="thead-light">
@@ -28,7 +23,7 @@
     </thead>
     <br>
     <tbody>
-      <% @crew_leaders.each do |crew_leader| %> 
+      <% @crew_leaders.each do |crew_leader| %>
         <tr>
           <td><%= link_to crew_leader.first_name, crew_leader_path(crew_leader) %></td>
           <td><%= crew_leader.last_name %></td>
@@ -42,7 +37,7 @@
             <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, { action: :destroy, id: crew_leader.id }, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
           </td>
         </tr>
-      <% end %> 
+      <% end %>
     </tbody>
   </table>
 </div>

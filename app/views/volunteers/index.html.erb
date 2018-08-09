@@ -1,21 +1,15 @@
-<h2>Volunteers VBS Colombia</h2>
-<br>
-<div class="row">
-  <div class="col-sm-4 col-sm-offset-4">
-    <%= form_tag volunteers_path, method: :get do %>
-      <div class="form-group">
-        <%= text_field_tag :first_name, params[:first_name], class: "form-control", placeholder: "Nombre" %>
-      </div>
-      <div class="form-group">
-        <%= text_field_tag :church, params[:church], class: "form-control", placeholder: "Iglesia" %>
-      </div>
-      <div class="form-group">
-        <%= select_tag "role_type", options_from_collection_for_select(Volunteer.role_types, "second", "first", params[:role_type]), prompt: "Rol", class: "form-control" %>
-      </div>
-      <%= submit_tag "Buscar", name: nil, class: "form-control btn btn-info" %>
-    <% end %>
-  </div>
-</div>
+<nav class="navbar navbar-light bg-light">
+  <a class="nav-link">Volunteers VBS Colombia</a>
+  <%= form_tag volunteers_path, method: :get, class: "form-inline" do %>
+      <%= text_field_tag :first_name, params[:first_name], class: "form-control mr-sm-2", placeholder: "Nombre" %>
+      <br><br>
+      <%= text_field_tag :church, params[:church], class: "form-control mr-sm-2", placeholder: "Iglesia" %>
+      <br><br>
+      <%= select_tag "role_type", options_from_collection_for_select(Volunteer.role_types, "second", "first", params[:role_type]), prompt: "Rol", class: "form-control mr-sm-2" %>
+    <%= submit_tag "Buscar", name: nil, class: "btn btn-outline-info my-2 my-sm-0" %>
+  <% end %>
+</nav>
+
 <div class="table-responsive-sm">
   <table class="table">
     <thead class="thead-light">
@@ -35,7 +29,7 @@
     </thead>
     <br>
     <tbody>
-      <% @volunteers.each do |volunteer| %> 
+      <% @volunteers.each do |volunteer| %>
         <tr>
           <td><%= link_to volunteer.first_name, volunteer_path(volunteer) %></td>
           <td><%= volunteer.last_name %></td>
@@ -52,7 +46,7 @@
             <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, { action: :destroy, id: volunteer.id }, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
           </td>
         </tr>
-      <% end %> 
+      <% end %>
     </tbody>
   </table>
 </div>

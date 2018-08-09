@@ -1,16 +1,12 @@
-<h2>Niños VBS Colombia</h2>
+<nav class="navbar navbar-light bg-light">
+  <a class="nav-link">Niños VBS Colombia</a>
+  <%= form_tag children_path, method: :get, class: "form-inline" do %>
+    <%= text_field_tag :first_name, params[:first_name], class: "form-control mr-sm-2", placeholder: "Nombre" %>
+    <%= submit_tag "Buscar", name: nil, class: "btn btn-outline-info my-2 my-sm-0" %>
+  <% end %>
+</nav>
 <br>
-<div class="row">
-  <div class="col-sm-4 col-sm-offset-4">
-    <%= form_tag children_path, method: :get do %>
-      <div class="form-group">
-        <%= text_field_tag :first_name, params[:first_name], class: "form-control", placeholder: "Nombre" %>
-      </div>
-      <%= submit_tag "Buscar", name: nil, class: "form-control btn btn-info" %>
-    <% end %>
-  </div>
-</div>
-<br>
+
 <div class="table-responsive-sm">
   <table class="table">
     <thead class="thead-light">
@@ -26,7 +22,7 @@
     </tr>
     </thead>
     <tbody>
-      <% @children.each do |child| %> 
+      <% @children.each do |child| %>
         <tr>
           <td><%= link_to child.first_name, child %></td>
           <td><%= child.last_name %></td>
@@ -42,9 +38,9 @@
           </td>
           <td>
               <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, child, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
-          </td>        
+          </td>
         </tr>
-      <% end %> 
+      <% end %>
     </tbody>
   </table>
 </div>
