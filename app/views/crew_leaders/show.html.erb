@@ -1,4 +1,7 @@
-<h2><%= @crew_leader.first_name %> <%= @crew_leader.last_name %>'s Crew</h2>
+<nav class="navbar navbar-light bg-light">
+  <a class="nav-link"><%= @crew_leader.first_name %> <%= @crew_leader.last_name %>'s Crew</a>
+</nav>
+
 <br>
 <div class="table-responsive-sm">
   <table class="table">
@@ -14,7 +17,7 @@
     </tr>
     </thead>
     <tbody>
-      <% @crew_leader.children.each do |child| %> 
+      <% @crew_leader.children.each do |child| %>
         <tr>
           <td><%= link_to child.first_name, child %></td>
           <td><%= child.last_name %></td>
@@ -27,7 +30,7 @@
               <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, child, method: :delete, data: { confirm: 'Estás seguro?' }, class: "btn btn-danger" %>
           </td>
         </tr>
-      <% end %> 
+      <% end %>
     </tbody>
   </table>
 </div>

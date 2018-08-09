@@ -1,16 +1,20 @@
-<h2 align="center">Asigna El Crew Leader a este niño</h2>
+<nav class="navbar navbar-light bg-light">
+  <a class="nav-link">Asigna El Crew Leader a este niño</a>
+</nav>
+
+<br>
 <div class="row">
   <div class="col-sm-6 offset-sm-3">
     <%= form_for @child do |f| %>
       <div class="form-group">
         <!--  <label for="crew_leader_id">Crew Leader: </label> -->
         <%= collection_select(
-            :child, # field namespace 
+            :child, # field namespace
             :crew_leader_id, # field name
-            CrewLeader.all, 
-            :id, 
+            CrewLeader.all,
+            :id,
             :first_name, # this is name of method that will be called for every row,
-            {prompt: "Selecciona el Crew Leader"}, 
+            {prompt: "Selecciona el Crew Leader"},
             {class: "form-control"}
         )  %>
       </div>
