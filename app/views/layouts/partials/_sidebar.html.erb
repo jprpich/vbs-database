@@ -30,6 +30,15 @@
                 <li>
                     <%= link_to "Crear Volunteer", new_volunteer_path, class: "nav-link" %>
                 </li>
+                <% if hacker_signed_in? %>
+                  <li>
+                    <%= link_to('Logout', destroy_hacker_session_path, method: :delete, class: "nav-link") %>
+                  </li>
+                <% else %>
+                  <li>
+                    <%= link_to('Login', new_hacker_session_path, class:"nav-link")  %>
+                  </li>
+                <% end %>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->

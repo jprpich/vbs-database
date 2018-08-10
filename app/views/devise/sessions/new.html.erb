@@ -1,4 +1,7 @@
-<h2 align="center">Log in</h2>
+<nav class="navbar navbar-light bg-light">
+  <a class="nav-link">Login</a>
+</nav>
+<br>
 <div class="row">
   <div class="col-sm-6 offset-sm-3">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -26,4 +29,3 @@
     <%= render "devise/shared/links" %>
   </div>
 </div>
-
