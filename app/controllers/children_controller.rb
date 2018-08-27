@@ -2,7 +2,7 @@ class ChildrenController < ApplicationController
   before_action :authenticate_hacker!
   before_action :fetch_child, only: [:update, :edit, :destroy, :show]
   before_action :ensure_is_admin, only: [:edit, :update, :destroy, :asign_crews]
-  before_action :ensure_is_editor, only: [:index, :show, :create] 
+  before_action :ensure_is_editor, only: [:index, :show, :create]
   def index
     @children = Child.order('first_name ASC')
     if params[:first_name].present?
@@ -19,9 +19,9 @@ class ChildrenController < ApplicationController
         redirect_to parent
       else
         @errors = child.errors.full_messages
-        redirect_to parent, :flash => { :error => @errors }
+        redirect_to parent, :flash => { :error => @errors[0] }
       end
-    end 
+    end
   end
 
   def show
@@ -34,21 +34,21 @@ class ChildrenController < ApplicationController
     if @child.update(child_params)
       flash[:success] = "Hijo actualizado con éxito"
       redirect_to @child.parent
-    else 
+    else
       render 'edit'
     end
   end
-  
+
   def asign_crews
     @crew_leaders = CrewLeader.all
     @crew_leaders.each do |crew_leader|
       crew_leader.children.clear
     end
 
-    crew_leader = CrewLeader.first 
+    crew_leader = CrewLeader.first
 
-    @children = Child.all 
-    @children.each do |child| 
+    @children = Child.all
+    @children.each do |child|
       if crew_leader
         if crew_leader.children.count < 5
           child.crew_leader = crew_leader
